@@ -1,0 +1,16 @@
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\bin\Debug\net5.0\AdventofCode2021.exe
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\bin\Debug\net5.0\AdventofCode2021.deps.json
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\bin\Debug\net5.0\AdventofCode2021.runtimeconfig.json
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\bin\Debug\net5.0\AdventofCode2021.runtimeconfig.dev.json
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\bin\Debug\net5.0\AdventofCode2021.dll
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\bin\Debug\net5.0\ref\AdventofCode2021.dll
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\bin\Debug\net5.0\AdventofCode2021.pdb
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.csproj.AssemblyReference.cache
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.AssemblyInfoInputs.cache
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.AssemblyInfo.cs
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.csproj.CoreCompileInputs.cache
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.dll
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\ref\AdventofCode2021.dll
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.pdb
+C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\obj\Debug\net5.0\AdventofCode2021.genruntimeconfig.cache
