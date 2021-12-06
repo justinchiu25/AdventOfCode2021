@@ -11,7 +11,7 @@ namespace AdventofCode2021
     {
         public void Main()
         {
-            string path = @"C:\Users\justi\Documents\Learning\AdventofCode2021\AdventofCode2021\Inputs\day4.txt";
+            string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day4.txt";
 
             string[] input = File.ReadAllLines(path);
 

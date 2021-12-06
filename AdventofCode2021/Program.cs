@@ -6,9 +6,9 @@ namespace AdventofCode2021
     {
         static void Main(string[] args)
         {
-            var day4 = new Day5();
+            var day = new Day5();
 
-            day4.Main();
+            day.Main();
         }
     }
 }

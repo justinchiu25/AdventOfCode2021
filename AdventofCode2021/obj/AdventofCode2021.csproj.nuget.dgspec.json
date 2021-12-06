@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justi\\Documents\\Learning\\AdventofCode2021\\AdventofCode2021\\AdventofCode2021.csproj": {}
+    "C:\\Users\\justi\\Documents\\GitHub\\AdventOfCode2021\\AdventofCode2021\\AdventofCode2021.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justi\\Documents\\Learning\\AdventofCode2021\\AdventofCode2021\\AdventofCode2021.csproj": {
+    "C:\\Users\\justi\\Documents\\GitHub\\AdventOfCode2021\\AdventofCode2021\\AdventofCode2021.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justi\\Documents\\Learning\\AdventofCode2021\\AdventofCode2021\\AdventofCode2021.csproj",
+        "projectUniqueName": "C:\\Users\\justi\\Documents\\GitHub\\AdventOfCode2021\\AdventofCode2021\\AdventofCode2021.csproj",
         "projectName": "AdventofCode2021",
-        "projectPath": "C:\\Users\\justi\\Documents\\Learning\\AdventofCode2021\\AdventofCode2021\\AdventofCode2021.csproj",
+        "projectPath": "C:\\Users\\justi\\Documents\\GitHub\\AdventOfCode2021\\AdventofCode2021\\AdventofCode2021.csproj",
         "packagesPath": "C:\\Users\\justi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justi\\Documents\\Learning\\AdventofCode2021\\AdventofCode2021\\obj\\",
+        "outputPath": "C:\\Users\\justi\\Documents\\GitHub\\AdventOfCode2021\\AdventofCode2021\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justi\\AppData\\Roaming\\NuGet\\NuGet.Config",
