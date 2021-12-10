@@ -41,14 +41,16 @@ namespace AdventofCode2021
             for (int i = 0; i < lowestPoints.Count;i++)
             {
                 var myDict = new Dictionary<string,int>();
+                var tempDict = new Dictionary<string, bool>();
                 FindAdjacent(input, lowestPoints[i][0], lowestPoints[i][1],myDict);
                 counts.Add(myDict.Count);
+                
+                newCode(input, lowestPoints[i][0], lowestPoints[i][1],tempDict);
             }
 
             counts.Sort();
             counts.Reverse();
             partTwoResult = counts[0] * counts[1] * counts[2];
-
 
             Console.WriteLine(partTwoResult);
         }
@@ -95,9 +97,9 @@ namespace AdventofCode2021
         //Find Adjacent that is +1  if true count++; 9 does not count
         private void FindAdjacent(string[] input,int row, int col, Dictionary<string,int> myDict)
         {
-            //Check left
             if (!myDict.ContainsKey($"{row},{col}"))
             {
+                //Check left
                 if ((col - 1) >= 0 && (input[row][col - 1] > input[row][col]) && input[row][col-1] != '9')
                 {
                     FindAdjacent(input, row, col-1, myDict);
@@ -121,6 +123,24 @@ namespace AdventofCode2021
                 }
                 myDict.Add($"{row},{col}",0);
             }
+        }
+
+
+        private void newCode(string[] input, int row, int col, Dictionary<string, bool> myDict)
+        {
+            if (!myDict.ContainsKey($"{row},{col}"))
+            {
+                myDict.Add($"{row},{col}", false);
+                Console.WriteLine("Added");
+            }
+
+            if (myDict[$"{row},{col}"].Equals("false"))
+            {
+                Console.WriteLine(input[row][col] + " " + row + " " + col);
+                newCode(input, row, col, myDict);
+            }
+
+            myDict[$"{row},{col}"] = true;
         }
     }
 }
