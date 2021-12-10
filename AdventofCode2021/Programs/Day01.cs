@@ -7,12 +7,12 @@ using System.IO;
 
 namespace AdventofCode2021
 {
-    class Day1
+    class Day01
     {
 		public void Main()
 		{
 			int[] test = new int[] { 199, 200, 208, 210, 200, 207, 240, 269, 260, 263 };
-			string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day1.txt";
+			string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day01.txt";
 			string[] input = File.ReadAllLines(path);
 
 			int holder = 0;

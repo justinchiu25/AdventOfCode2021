@@ -8,12 +8,12 @@ using System.Collections;
 
 namespace AdventofCode2021
 {
-    class Day9
+    class Day09
     {
 
         public void Main()
         {
-            string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day9.txt";
+            string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day09.txt";
             string[] input = File.ReadAllLines(path);
 
             Problem(input);

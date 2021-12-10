@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace AdventofCode2021
 {
-    class Day8
+    class Day08
     {
         public void Main()
         {
-            string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day8.txt";
+            string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day08.txt";
 
             string[] input = File.ReadAllLines(path);
 

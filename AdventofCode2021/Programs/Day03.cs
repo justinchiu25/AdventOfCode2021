@@ -7,11 +7,11 @@ using System.IO;
 
 namespace AdventofCode2021
 {
-    class Day3
+    class Day03
     {
         public void Main()
         {
-            string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day3.txt";
+            string path = @"C:\Users\justi\Documents\GitHub\AdventOfCode2021\AdventofCode2021\Inputs\day03.txt";
 
             string[] input = File.ReadAllLines(path);
 
