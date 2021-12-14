@@ -9,6 +9,7 @@ namespace AdventofCode2021
 {
     class Day12
     {
+        int count = 0;
         //Unfinished
         public void Main()
         {
@@ -58,63 +59,72 @@ namespace AdventofCode2021
                 }
             }
             PrintAllPath(caveTree, start, end);
+            Console.WriteLine(count);
         }
 
         private void PrintAllPath(Graph graph,GraphNode start, GraphNode end)
         {
-            var myDict = new Dictionary<string, bool>();
+            var beenToLocation = new Dictionary<string, bool>();
 
-            List<string> pathList = new List<string>();
-
-            pathList.Add(start.nodeName);
+            Stack<string> pathStack = new Stack<string>();
+            pathStack.Push(start.nodeName);
             bool isPartOne = true;
-            PrintAllPathsUtil(start, end, myDict, pathList,isPartOne);
+            PrintAllPathsUtil(start, end, beenToLocation, pathStack,isPartOne);
         }
-        private void PrintAllPathsUtil(GraphNode start, GraphNode end,Dictionary<string,bool> myDict, List<string> currentPath,bool checker)
+        private void PrintAllPathsUtil(GraphNode start, GraphNode end,Dictionary<string,bool> beenToLocation, Stack<string> currentPath,bool beenToSmallCave)
         {
-            bool beenToSmallCave = checker;
             if (start == end)
             {
-                Console.WriteLine(string.Join(" ", currentPath));
+                //Console.WriteLine(string.Join(" ", currentPath));
+                Stack<string> temp = new Stack<string>();
+                while (currentPath.Count > 0)
+                {
+                    string holder = currentPath.Pop();
+                    temp.Push(holder);
+                }
+
+                while (temp.Count > 0)
+                {
+                    string holder = temp.Pop();
+                    Console.Write(holder + " ");
+                    currentPath.Push(holder);
+                }
+                Console.WriteLine();
+                count++;
                 return;
             }
 
-            if (!myDict.ContainsKey(start.nodeName))
+            if (!beenToLocation.ContainsKey(start.nodeName))
             {
-                myDict.Add(start.nodeName, false);
+                beenToLocation.Add(start.nodeName, false);
             }
 
             if (start.caveType != "bigCave")
             {
-                myDict[start.nodeName] = true;
+                beenToLocation[start.nodeName] = true;
             }
 
             if (start.caveType == "smallCave" && beenToSmallCave == false)
             {
-                myDict[start.nodeName] = false;
+                beenToLocation[start.nodeName] = false;
                 beenToSmallCave = true;
             }
 
-            foreach(GraphNode p in start.neighbors)
+            foreach (GraphNode p in start.neighbors)
             {
-                if (!myDict.ContainsKey(p.nodeName))
+                if (!beenToLocation.ContainsKey(p.nodeName) || (beenToLocation.ContainsKey(p.nodeName) && beenToLocation[p.nodeName] == false))
                 {
-                    currentPath.Add(p.nodeName);
-                    PrintAllPathsUtil(p, end, myDict, currentPath,beenToSmallCave);
+                    currentPath.Push(p.nodeName);
+                    PrintAllPathsUtil(p, end, beenToLocation, currentPath,beenToSmallCave);
 
-                    currentPath.Remove(p.nodeName);
+                    if (!currentPath.Pop().Equals(p.nodeName))
+                    {
+                        Console.WriteLine("Not Equal");
+                    }
                 }
-                else if (myDict[p.nodeName] == false)
-                {
-                    currentPath.Add(p.nodeName);
-                    PrintAllPathsUtil(p, end, myDict, currentPath,beenToSmallCave);
-
-                    currentPath.Remove(p.nodeName);
-                }
-
             }
 
-            myDict[start.nodeName] = false;
+            beenToLocation[start.nodeName] = false;
         }
 
         private class GraphNode
