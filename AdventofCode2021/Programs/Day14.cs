@@ -99,7 +99,7 @@ namespace AdventofCode2021
             return uniqueCharacters;
         }
 
-        //Uses dictionaries to solve 
+        //Uses dictionaries to solve by adding pairs into dictionary then comparing it to pairInsertions each iteration to see which character we add
         //NNCB
         private void PartTwoSolver(string polymerTemplate, Dictionary<string,string> pairInsertions, int maxSteps)
         {
@@ -143,12 +143,14 @@ namespace AdventofCode2021
                 var newUniquePairs = new Dictionary<string, long>();
                 foreach(KeyValuePair<string,long> pair in uniquePairs)
                 {
-                    //pair = NN --> result = NC 
+                    
                     if (pairInsertions.ContainsKey(pair.Key))
                     {
                         long count = pair.Value;
                         string newPair = pair.Key[0].ToString() + pairInsertions[pair.Key];
                         string newSecondPair = pairInsertions[pair.Key] + pair.Key[1].ToString();
+
+                        //Adds or increases "newPair" in dictionary
                         if (!newUniquePairs.ContainsKey(newPair))
                         {
                             newUniquePairs.Add(newPair, count);
@@ -158,6 +160,7 @@ namespace AdventofCode2021
                             newUniquePairs[newPair] += count;
                         }
 
+                        //Adds or increases "newSecondPair" in dictionary
                         if (!newUniquePairs.ContainsKey(newSecondPair))
                         {
                             newUniquePairs.Add(newSecondPair,count);
@@ -167,6 +170,7 @@ namespace AdventofCode2021
                             newUniquePairs[newSecondPair] += count;
                         }
 
+                        //Adds or increases the unique character in the uniqueCharacter dictionary
                         if (!uniqueCharacters.ContainsKey(pairInsertions[pair.Key]))
                         {
                             uniqueCharacters.Add(pairInsertions[pair.Key], count);
@@ -175,7 +179,6 @@ namespace AdventofCode2021
                         {
                             uniqueCharacters[pairInsertions[pair.Key]] += count;
                         }
-                        //Console.WriteLine(pair.Key + " " + pair.Value);
                     }
                     uniquePairs = newUniquePairs;
                 }
