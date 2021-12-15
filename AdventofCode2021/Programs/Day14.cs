@@ -26,7 +26,8 @@ namespace AdventofCode2021
 
                 pairInsertions.Add(pairing, output);
             }
-            PartOne(polymerTemplate, pairInsertions, 40);
+            //PartOne(polymerTemplate, pairInsertions, 40);
+            PartTwoSolver(polymerTemplate, pairInsertions,40);
         }
         
         private void PartOne(string polymerTemplate, Dictionary<string,string> pairInsertions,int maxSteps)
@@ -96,6 +97,95 @@ namespace AdventofCode2021
             }
 
             return uniqueCharacters;
+        }
+
+        //Uses dictionaries to solve 
+        //NNCB
+        private void PartTwoSolver(string polymerTemplate, Dictionary<string,string> pairInsertions, int maxSteps)
+        {
+            var uniquePairs = new Dictionary<string, long>();
+            var uniqueCharacters = new Dictionary<string, long>();
+            //Go through string first
+            //Add new pair to dictionary
+
+            //Adding each pair to uniquePairs dictionary
+            for (int i = 0; i < polymerTemplate.Length-1; i++)
+            {
+                string current = polymerTemplate[i].ToString() + polymerTemplate[i + 1].ToString();
+
+                if (!uniquePairs.ContainsKey(current))
+                {
+                    uniquePairs.Add(polymerTemplate[i].ToString()+polymerTemplate[i+1].ToString(),1);
+                }
+                else 
+                {
+                    uniquePairs[current] += 1;
+                }
+            }
+
+            //Adding single character counts to uniqueCharacter dictionary
+            for (int i = 0; i <polymerTemplate.Length;i++)
+            {
+                string character = polymerTemplate[i].ToString();
+                if (!uniqueCharacters.ContainsKey(character))
+                {
+                    uniqueCharacters.Add(character, 1);
+                }
+                else
+                {
+                    uniqueCharacters[character] += 1;
+                }
+            }
+
+            int steps = 0;
+            while (steps < maxSteps)
+            {
+                var newUniquePairs = new Dictionary<string, long>();
+                foreach(KeyValuePair<string,long> pair in uniquePairs)
+                {
+                    //pair = NN --> result = NC 
+                    if (pairInsertions.ContainsKey(pair.Key))
+                    {
+                        long count = pair.Value;
+                        string newPair = pair.Key[0].ToString() + pairInsertions[pair.Key];
+                        string newSecondPair = pairInsertions[pair.Key] + pair.Key[1].ToString();
+                        if (!newUniquePairs.ContainsKey(newPair))
+                        {
+                            newUniquePairs.Add(newPair, count);
+                        }
+                        else
+                        {
+                            newUniquePairs[newPair] += count;
+                        }
+
+                        if (!newUniquePairs.ContainsKey(newSecondPair))
+                        {
+                            newUniquePairs.Add(newSecondPair,count);
+                        }
+                        else
+                        {
+                            newUniquePairs[newSecondPair] += count;
+                        }
+
+                        if (!uniqueCharacters.ContainsKey(pairInsertions[pair.Key]))
+                        {
+                            uniqueCharacters.Add(pairInsertions[pair.Key], count);
+                        }
+                        else
+                        {
+                            uniqueCharacters[pairInsertions[pair.Key]] += count;
+                        }
+                        //Console.WriteLine(pair.Key + " " + pair.Value);
+                    }
+                    uniquePairs = newUniquePairs;
+                }
+                steps++;
+            }
+
+            long maxValue = uniqueCharacters.Values.Max();
+            long minValue = uniqueCharacters.Values.Min();
+
+            Console.WriteLine(maxValue - minValue);
         }
     }
 
